@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "IlQlyp97JCrJFWFM8kmNP4Wk1SKqALI5BfE4nl7vkrtnbwcJPbx5VQUPQcDeOsFWwyOVLoBzeJlhbfRlX6OXzQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\jh\\code\\C#\\asp.net5_for_beginners\\Chapter_02_Certificates\\Chapter_02_Certificates.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\jh\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
+    "C:\\Users\\jh\\.nuget\\packages\\microsoft.identitymodel.logging\\6.8.0\\microsoft.identitymodel.logging.6.8.0.nupkg.sha512",
+    "C:\\Users\\jh\\.nuget\\packages\\microsoft.identitymodel.tokens\\6.8.0\\microsoft.identitymodel.tokens.6.8.0.nupkg.sha512",
+    "C:\\Users\\jh\\.nuget\\packages\\system.security.cryptography.cng\\4.5.0\\system.security.cryptography.cng.4.5.0.nupkg.sha512"
+  ],
+  "logs": []
+}
