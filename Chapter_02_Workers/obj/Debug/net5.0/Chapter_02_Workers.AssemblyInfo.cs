@@ -11,7 +11,6 @@
 using System;
 using System.Reflection;
 
-[assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("dotnet-Chapter_02_Workers-1AF0B36C-A07F-4852-BBBE-3ACBC251DEE3")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("Chapter_02_Workers")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
