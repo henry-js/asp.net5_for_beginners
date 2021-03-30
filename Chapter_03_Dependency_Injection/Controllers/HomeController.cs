@@ -13,15 +13,21 @@ namespace Chapter_03_Dependency_Injection.Controllers
     public class HomeController : Controller
     {
         private readonly IMusicManager _musicManager;
+        private readonly InstrumentalMusicManager _insMusicManager;
 
-        public HomeController(IMusicManager musicManager)
+        public HomeController(IMusicManager musicManager, InstrumentalMusicManager insMusicManager)
         {
             _musicManager = musicManager;
+            _insMusicManager = insMusicManager;
         }
 
         public IActionResult Index()
         {
-            var songs = _musicManager.GetAllMusic();
+            var musicManagerReqId = _musicManager.RequestId;
+            var insMusicManagerReqId = _insMusicManager.RequestId;
+
+            _musicManager.Notify = new Notifier();
+            var songs = _musicManager.GetAllMusicThenNotify();
             return View(songs);
         }
 
@@ -30,7 +36,6 @@ namespace Chapter_03_Dependency_Injection.Controllers
             return View();
         }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });

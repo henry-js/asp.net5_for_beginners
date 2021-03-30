@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Chapter_03_Dependency_Injection.Controllers;
 using Chapter_03_Dependency_Injection.DataManager;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -25,7 +26,9 @@ namespace Chapter_03_Dependency_Injection
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            services.AddTransient<IMusicManager, MusicManager>();
+            services.AddSingleton<IMusicManager, MusicManager>();
+            services.AddTransient<InstrumentalMusicManager>();
+            services.AddTransient<MusicManager>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
