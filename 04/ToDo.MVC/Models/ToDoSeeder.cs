@@ -9,7 +9,7 @@ namespace ToDo.MVC.Models
     {
         public static void Seed(IServiceProvider serviceProvider)
         {
-            using var context = new TodoDbContext(serviceProvider.GetRequiredService<DbContextOptions<TodoDbContext>>());
+            var context = new TodoDbContext(serviceProvider.GetRequiredService<DbContextOptions<TodoDbContext>>());
 
             // Look for any todos.
             if (context.Todos.Any())
