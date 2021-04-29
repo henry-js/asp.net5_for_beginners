@@ -1,5 +1,5 @@
 {
-  "FilePath": "c:\\Users\\otaco\\code\\c#\\asp.net5_for_beginners\\chapter_01_HelloWeb\\chapter_01_HelloWeb.csproj",
+  "FilePath": "c:\\Users\\jh\\code\\c#\\asp.net5_for_beginners\\Chapter_02_Certificates\\Chapter_02_Certificates.csproj",
   "Configuration": {
     "ConfigurationName": "MVC-3.0",
     "LanguageVersion": "5.0",
@@ -15616,7 +15616,43 @@
     ],
     "CSharpLanguageVersion": 900
   },
-  "RootNamespace": "chapter_01_HelloWeb",
-  "Documents": [],
+  "RootNamespace": "Chapter_02_Certificates",
+  "Documents": [
+    {
+      "FilePath": "c:\\Users\\jh\\code\\c#\\asp.net5_for_beginners\\Chapter_02_Certificates\\Views\\_ViewStart.cshtml",
+      "TargetPath": "Views\\_ViewStart.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\jh\\code\\c#\\asp.net5_for_beginners\\Chapter_02_Certificates\\Views\\Shared\\Error.cshtml",
+      "TargetPath": "Views\\Shared\\Error.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\jh\\code\\c#\\asp.net5_for_beginners\\Chapter_02_Certificates\\Views\\Home\\Privacy.cshtml",
+      "TargetPath": "Views\\Home\\Privacy.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\jh\\code\\c#\\asp.net5_for_beginners\\Chapter_02_Certificates\\Views\\_ViewImports.cshtml",
+      "TargetPath": "Views\\_ViewImports.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\jh\\code\\c#\\asp.net5_for_beginners\\Chapter_02_Certificates\\Views\\Shared\\_Layout.cshtml",
+      "TargetPath": "Views\\Shared\\_Layout.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\jh\\code\\c#\\asp.net5_for_beginners\\Chapter_02_Certificates\\Views\\Home\\Index.cshtml",
+      "TargetPath": "Views\\Home\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\jh\\code\\c#\\asp.net5_for_beginners\\Chapter_02_Certificates\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+      "TargetPath": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
+      "FileKind": "mvc"
+    }
+  ],
   "SerializationFormat": "0.2"
 }
