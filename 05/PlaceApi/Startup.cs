@@ -6,11 +6,13 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using PlaceApi.Db;
 
 namespace PlaceApi
 {
@@ -26,17 +28,36 @@ namespace PlaceApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
+            services.AddSignalR();
+            services.AddResponseCompression(opts =>
+            {
+                opts.MimeTypes = ResponseCompressionDefaults.MimeTypes.Concat(
+                    new[] { "application/octet-stream" });
+            });
+            
+            services.AddInMemoryDatabaseService("PlaceDb");
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "PlaceApi", Version = "v1" });
+            });
+            services.AddCors(options =>
+            {
+                options.AddPolicy("AllowAll",
+                builder =>
+                {
+                    builder.AllowAnyOrigin()
+                           .AllowAnyHeader()
+                           .AllowAnyMethod();
+                });
             });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            app.InitializeSeededData();
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -46,13 +67,18 @@ namespace PlaceApi
 
             app.UseHttpsRedirection();
 
-            app.UseRouting();
+            app.UseRouting()
+               .UseCors("AllowAll");
 
             app.UseAuthorization();
+
+            // add the ResponseCompression middleware in the pipeline and map our Hub
+            app.UseResponseCompression();
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapHub<PlaceApiHub>("/PlaceApiHub");
             });
         }
     }
