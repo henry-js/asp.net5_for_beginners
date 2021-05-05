@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using PlaceApi.Db.Models;
 
-namespace PlaceApi.Db.Models
+namespace PlaceApi.Db
 {
     public class PlaceDbSeeder
     {
