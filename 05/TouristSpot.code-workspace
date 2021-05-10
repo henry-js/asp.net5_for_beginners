@@ -5,6 +5,9 @@
 		},
 		{
 			"path": "BlazorServer.Web"
+		},
+		{
+			"path": "BlazorWasm.PWA"
 		}
 	],
 	"settings": {}
