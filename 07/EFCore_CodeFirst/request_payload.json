@@ -1,0 +1,20 @@
+{
+  "nickName": "Vianne",
+  "playerInstruments": [
+    {
+      "InstrumentTypeId": 1,
+      "ModelName": "Taylor 900 Series",
+      "Level": "Professional"
+    },
+    {
+      "InstrumentTypeId": 2,
+      "ModelName": "Gibson Les Paul Classic",
+      "Level": "Intermediate"
+    },
+    {
+      "InstrumentTypeId": 3,
+      "ModelName": "Pearl EXL705 Export",
+      "Level": "Novice"
+    }
+  ]
+}
