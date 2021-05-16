@@ -10,7 +10,7 @@ namespace EFCore_CodeFirst.DTO
         public int PageCount { get; set; }
         public int PageSize
         {
-            get { return 20; }
+            get => 20;
             set => _ = (value > _maxPageSize) ? _maxPageSize : value;
         }
         public int TotalRecordCount { get; set; }

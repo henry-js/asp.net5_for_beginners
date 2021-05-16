@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using EFCore_CodeFirst.Db;
 using EFCore_CodeFirst.Db.Models;
 using EFCore_CodeFirst.DTO;
+using EFCore_CodeFirst.DTO.PlayerInstruments;
 using EFCore_CodeFirst.DTO.Players;
 using EFCore_CodeFirst.Extensions;
 using EFCore_CodeFirst.Interfaces;
@@ -82,6 +83,37 @@ namespace EFCore_CodeFirst.Services
                     InstrumentSubmittedCount = p.Instruments.Count
                 }).ToList()
             };
+        }
+
+        public async Task<GetPlayerDetailResponse> GetPlayerDetailAsync(int id)
+        {
+            var player = await _dbContext.Players.FindAsync(id);
+            // implement null validation check
+
+            var instruments = await
+                (from pi in _dbContext.PlayerInstruments
+                 join it in _dbContext.InstrumentTypes
+                    on pi.InstrumentTypeId equals
+                    it.InstrumentTypeId
+                where pi.PlayerId.Equals(id)
+                select new GetPlayerInstrumentResponse
+                {
+                    InstrumentTypeName = it.Name,
+                    ModelName = pi.ModelName,
+                    Level = pi.Level
+                }).ToListAsync();
+            
+            return new GetPlayerDetailResponse
+            {
+                NickName = player.NickName,
+                JoinedDate = player.JoinedDate,
+                PlayerInstruments = instruments
+            };
+        }
+
+        public async Task<bool> UpdatePlayerAsync(int id, UpdatePlayerRequest playerRequest)
+        {
+            
         }
     }
 }
