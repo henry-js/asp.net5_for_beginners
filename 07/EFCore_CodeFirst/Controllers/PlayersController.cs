@@ -52,5 +52,16 @@ namespace EFCore_CodeFirst.Controllers
             }
             return Ok("Record has been updated successfully.");
         }
+
+        [HttpDelete("{id:long}")]
+        public async Task<IActionResult> DeletePlayerAsync(int id)
+        {
+            var isDeleted = await _playerService.DeletePlayerAsync(id);
+            if (!isDeleted)
+            {
+                return NotFound($"Player {id} not found.");
+            }
+            return Ok("Record has been deleted successfully.");
+        }
     }
 }

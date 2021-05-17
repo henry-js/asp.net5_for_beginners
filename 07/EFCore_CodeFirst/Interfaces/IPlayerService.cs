@@ -10,5 +10,6 @@ namespace EFCore_CodeFirst.Interfaces
         Task<PagedResponse<GetPlayerResponse>> GetPlayersAsync(UrlQueryParameters urlQueryParameters);
         Task<GetPlayerDetailResponse> GetPlayerDetailAsync(int id);
         Task<bool> UpdatePlayerAsync(int id, UpdatePlayerRequest playerRequest);
+        Task<bool> DeletePlayerAsync(int id);
     }
 }

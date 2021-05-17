@@ -123,5 +123,15 @@ namespace EFCore_CodeFirst.Services
             _dbContext.Update(playerToUpdate);
             return await _dbContext.SaveChangesAsync() > 0;
         }
+
+        public async Task<bool> DeletePlayerAsync(int id)
+        {
+            var playerToDelete = await _dbContext.Players
+                                       .Include(p => p.Instruments )
+                                       .FirstAsync(p => p.PlayerId.Equals(id));
+
+            _dbContext.Remove(playerToDelete);
+            return await _dbContext.SaveChangesAsync() > 0;
+        }
     }
 }
