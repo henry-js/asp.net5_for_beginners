@@ -96,13 +96,14 @@ namespace EFCore_CodeFirst.Services
                     on pi.InstrumentTypeId equals
                     it.InstrumentTypeId
                 where pi.PlayerId.Equals(id)
+                // fill player instrument DTO
                 select new GetPlayerInstrumentResponse
                 {
                     InstrumentTypeName = it.Name,
                     ModelName = pi.ModelName,
                     Level = pi.Level
                 }).ToListAsync();
-            
+            // return DTO
             return new GetPlayerDetailResponse
             {
                 NickName = player.NickName,
@@ -113,7 +114,14 @@ namespace EFCore_CodeFirst.Services
 
         public async Task<bool> UpdatePlayerAsync(int id, UpdatePlayerRequest playerRequest)
         {
-            
+            var playerToUpdate = await _dbContext.Players.FindAsync(id);
+            if (default == playerToUpdate)
+            {
+                return false;
+            }
+            playerToUpdate.NickName = playerRequest.NickName;
+            _dbContext.Update(playerToUpdate);
+            return await _dbContext.SaveChangesAsync() > 0;
         }
     }
 }

@@ -39,5 +39,18 @@ namespace EFCore_CodeFirst.Controllers
             // null validation check
             return Ok(player);
         }
+
+        [HttpPut("{id:long}")]
+        public async Task<IActionResult> PutPlayerAsync(int id, [FromBody] UpdatePlayerRequest playerRequest)
+        {
+            if (!ModelState.IsValid) { return BadRequest(); }
+
+            var isUpdated = await _playerService.UpdatePlayerAsync(id, playerRequest);
+            if (!isUpdated)
+            {
+                return NotFound($"PlayerId { id } not found.");
+            }
+            return Ok("Record has been updated successfully.");
+        }
     }
 }
